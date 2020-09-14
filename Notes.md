@@ -38,3 +38,17 @@ The first test was on the model, but the second test is on the only page: the ho
 
 > **Also Note:** That the response says 4 tests, this is becuase 'setUp' isn't an actual test but merely lets us run subsequent tests. The 4 actual tests are test_text_content, test_view_url_exists_at_proper_location,test_view_url_by_name, and test_view_uses_correct_template
 > Any function that uses the word 'test' at the beginning and exists in a tests.py file will be run at the command `python manage.py test`
+
+## Heroku deployment
+
+1. Update Pipfile.lock with the command `pipenv lock`
+2. Make new Procfile with `touch Procfile` in bash shell and write `web: gunicorn {projectname}.esgi --log-file -` in it.
+3. Install gunicorn with `pipenv install gunicorn`
+4. Update settings.py such that `ALLOWED_HOSTS = ['*]`
+5. Push to git repo i.e Add, Commit, Push trio
+6. Log in to Heroku with `heroku login`
+7. Create the app with `heroku create`
+8. Set git to use the app name when code is pushed to Heroku with `heroku git:remote -a {app name}`
+9. Ignore static files with `heroku config:set DISABLE_COLLECTSTATIC=1`
+10. Push code to Heroku with `git push heroku master`
+11. Add free scaling so it's actually running online with `heroku ps:scale web=1`
