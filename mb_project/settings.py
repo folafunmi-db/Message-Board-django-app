@@ -25,7 +25,7 @@ SECRET_KEY = "(&@dwi(0g-4395kl0g1r^-95gsjsxym$^g7sb5@#@$cs-qm^*2"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
