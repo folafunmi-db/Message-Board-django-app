@@ -25,3 +25,16 @@ Adding str() methods to all of your model is a best practice to improve readabil
 ## View/Templates/URLs
 
 In listing the content of the database we use the generic class-based `ListView` which returns an ogject called `object_list`
+
+## Tests
+
+Since the homepage works with a database we use `TestCase` which will let us create a 'test' database that can be checked against. This means that tests do not need to be run on the actual databse but instead can make a separate test database, fill it with sample data and then test against it.
+
+> Note: It is important that all test methods start with `test_` so as to let django know to test them.
+
+The first test was on the model, but the second test is on the only page: the homepage. Specifically, the test is to show that it exists, uses the `home` view and uses the `home.html` template i.e status code response = 200.
+
+> **Note:** A new import of `reverse` was added at the top
+
+> **Also Note:** That the response says 4 tests, this is becuase 'setUp' isn't an actual test but merely lets us run subsequent tests. The 4 actual tests are test_text_content, test_view_url_exists_at_proper_location,test_view_url_by_name, and test_view_uses_correct_template
+> Any function that uses the word 'test' at the beginning and exists in a tests.py file will be run at the command `python manage.py test`
