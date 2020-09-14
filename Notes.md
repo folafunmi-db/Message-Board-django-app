@@ -21,3 +21,7 @@ Django provides with a robust admin interface for interacting with the database.
 To use the admin we first need to create a superuser who can login. This is done using the `createsuperuser` command and responding to the prompts appropriately.
 
 Adding str() methods to all of your model is a best practice to improve readabilty
+
+## View/Templates/URLs
+
+In listing the content of the database we use the generic class-based `ListView` which returns an ogject called `object_list`
